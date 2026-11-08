@@ -1,0 +1,15 @@
+# Excel lock / temp files
+~$*
+*.tmp
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Raw data - large, public, reproducible from the documented URL
+data/*.csv
+data/*.CSV
+
+# Keep folder structure
+!**/.gitkeep
