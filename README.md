@@ -2,8 +2,8 @@
 
 An analysis of **219,012 payment records** from the City of Atlanta's FY2025 open checkbook.
 
-> **TODO — your headline finding goes here.** One sentence. The thing a city council
-> member would want to know if they read nothing else. Write this *last*, but put it *first*.
+> **Only 20 out of 5,334 vendors received 52% of Atlanta's total spending, adding up to
+> $1.26 billion.**
 
 ---
 
