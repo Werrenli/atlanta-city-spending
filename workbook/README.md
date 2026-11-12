@@ -11,4 +11,3 @@ Structure:
 | 01-07 | one PivotTable per question |
 | Dashboard | the three charts plus headline figures |
 
-The raw CSV is not committed. See `../data/README.md` to reproduce it.
