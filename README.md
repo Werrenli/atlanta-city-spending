@@ -5,6 +5,8 @@ An analysis of **219,012 payment records** from the City of Atlanta's FY2025 ope
 > **Only 20 out of 5,334 vendors received 52% of Atlanta's total spending, adding up to
 > $1.26 billion.**
 
+![Top 20 vendors by FY2025 spending](images/top-vendors.png)
+
 ---
 
 ## The question
@@ -92,6 +94,8 @@ The Aviation and Watershed departments make up 71.6% of total spending — Aviat
 is 55.8%. Both are enterprise funds, meaning they are paid for by landing fees and water
 bills rather than taxes. The dataset is mostly an airport and a water utility.
 
+![FY2025 spending by department](images/dept-spending.png)
+
 Police Services ($75.4M) and Fire Services ($21.3M) sit far below what those departments
 cost to operate, which suggests payroll is excluded from this ledger.
 
@@ -99,6 +103,8 @@ cost to operate, which suggests payroll is excluded from this ledger.
 
 Monthly spending ranges only 1.49× between the highest month (January, $233.4M) and the
 lowest (February, $156.6M), with no trend across the year.
+
+![FY2025 spending by month](images/monthly-spending.png)
 
 June — the last month of the fiscal year — runs **7.7% below average**. Government budgeting
 is known for a year-end spending surge, and this data shows the opposite. One plausible
@@ -120,10 +126,12 @@ regular vendors.
 
 ## Recommendation
 
-- TODO — who should act, and on what?
-- TODO — the `vendor_id` field is broken in a published dataset. Is that worth reporting to the city?
-- TODO — does 52% concentration in 20 vendors warrant procurement review, or is it normal for a city running a major airport?
-- TODO — pick one and argue it. A description without a recommendation is a report; with one, it's analysis.
+**The city should fix the `vendor_id` field in the published checkbook dataset.** When you
+download the file, `vendor_id` comes back as `3E+14` and similar values — 5,334 distinct
+vendors collapsed into 5 usable IDs. People can download the sheet and read everything else
+fine, but working out which *vendor* received a payment is another story: grouping by
+`vendor_id` returns a clean-looking table with wrong numbers and nothing to warn you it's
+wrong.
 
 ## Limitations
 
@@ -140,13 +148,16 @@ regular vendors.
   at scale
 - **60 rows have unrecoverable `payment_id` values**, making the 42,561 payment count a lower bound
 - **190 rows carry no vendor name**
-- TODO — anything else you hit
 
 ## What I'd do with more time
 
-- TODO — what would you check next?
-- TODO — what did you have to leave unanswered?
-- TODO — what would a second fiscal year let you say that one cannot?
+- I only have the dataset for one fiscal year, so I am not able to answer whether vendor
+  concentration is rising or falling. I would pull FY2023–2025 and compare the top-20 share
+  across all three years.
+- 73.1% of rows have no invoice description, so spending cannot be broken down by purpose.
+  I would check whether the city publishes that detail anywhere else.
+- I would reproduce the check-settlement finding as a PivotTable in the workbook, so every
+  number in this case study traces back to a cell someone can open.
 
 ## Repository contents
 
